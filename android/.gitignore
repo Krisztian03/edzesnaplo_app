@@ -6,6 +6,7 @@
 .pub-cache/
 build/
 *.g.dart
+lib/firebase_options.dart
 
 # IntelliJ / VS Code / Android Studio
 *.iml
