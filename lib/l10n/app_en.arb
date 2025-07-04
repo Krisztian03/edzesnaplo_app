@@ -1,0 +1,8 @@
+{
+  "@@locale": "en",
+  "login": "Login",
+  "email": "Email",
+  "password": "Password",
+  "emailEmptyError": "Please enter your email",
+  "passwordShortError": "Password must be at least 6 characters"
+}
