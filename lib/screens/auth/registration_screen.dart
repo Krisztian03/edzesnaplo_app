@@ -1,29 +1,36 @@
 import 'package:flutter/material.dart';
 import '../../../cores/services/auth_service.dart';
-import 'package:edzesnaplo/screens/home/home_screen.dart';
 import '../../l10n/app_localizations.dart';
-import 'registration_screen.dart';
+import 'login_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegistrationScreenState extends State<RegistrationScreen> {
   final _formKey = GlobalKey<FormState>();
-  String _email = '', _password = '';
+  String _email = '', _password = '', _confirmPassword = '';
   String? _errorMessage;
   final AuthService _authService = AuthService();
 
   void _submit() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      final result = await _authService.signInWithEmail(_email, _password);
+
+      if (_password != _confirmPassword) {
+        setState(() {
+          _errorMessage = AppLocalizations.of(context)!.passwordsDoNotMatch;
+        });
+        return;
+      }
+
+      final result = await _authService.registerWithEmail(_email, _password);
       if (result == null) {
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (_) => const HomeScreen()));
+            context, MaterialPageRoute(builder: (_) => const LoginScreen()));
       } else {
         setState(() => _errorMessage = result);
       }
@@ -35,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final loc = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBar(title: Text(loc.login)),
+      appBar: AppBar(title: Text(loc.register)),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Form(
@@ -58,20 +65,23 @@ class _LoginScreenState extends State<LoginScreen> {
                     ? loc.passwordShortError
                     : null,
               ),
+              TextFormField(
+                decoration: InputDecoration(labelText: loc.confirmPassword),
+                obscureText: true,
+                onSaved: (val) => _confirmPassword = val!,
+              ),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _submit,
-                child: Text(loc.login),
+                child: Text(loc.register),
               ),
               const SizedBox(height: 8),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => const RegistrationScreen()),
-                  );
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (_) => const LoginScreen()));
                 },
-                child: Text(loc.dontHaveAccount),
+                child: Text(loc.alreadyHaveAccount),
               ),
             ],
           ),

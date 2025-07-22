@@ -18,8 +18,24 @@ class AppLocalizationsHu extends AppLocalizations {
   String get password => 'Jelszó';
 
   @override
-  String get emailEmptyError => 'Kérlek add meg az emailed!';
+  String get register => 'Regisztráció';
 
   @override
-  String get passwordShortError => 'Minimum 6 karakteres jelszó kell!';
+  String get emailEmptyError => 'Az email nem lehet üres';
+
+  @override
+  String get passwordShortError =>
+      'A jelszónak legalább 6 karakter hosszúnak kell lennie';
+
+  @override
+  String get alreadyHaveAccount => 'Már van fiókod?';
+
+  @override
+  String get dontHaveAccount => 'Még nincs fiókod?';
+
+  @override
+  String get confirmPassword => 'Jelszó megerősítése';
+
+  @override
+  String get passwordsDoNotMatch => 'A jelszavak nem egyeznek';
 }

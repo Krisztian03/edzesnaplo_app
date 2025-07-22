@@ -1,8 +1,13 @@
 {
   "@@locale": "hu",
-  "login": "Bejelentkezés",
+ "login": "Bejelentkezés",
   "email": "Email",
   "password": "Jelszó",
-  "emailEmptyError": "Kérlek add meg az emailed!",
-  "passwordShortError": "Minimum 6 karakteres jelszó kell!"
+  "register": "Regisztráció",
+  "emailEmptyError": "Az email nem lehet üres",
+  "passwordShortError": "A jelszónak legalább 6 karakter hosszúnak kell lennie",
+  "alreadyHaveAccount": "Már van fiókod?",
+  "dontHaveAccount": "Még nincs fiókod?",
+  "confirmPassword": "Jelszó megerősítése",
+  "passwordsDoNotMatch": "A jelszavak nem egyeznek"
 }
