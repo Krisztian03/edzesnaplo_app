@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+      "login": "Login",
+      "email": "Email",
+      "password": "Password",
+      "register": "Register",
+      "emailEmptyError": "Email cannot be empty",
+      "passwordShortError": "Password must be at least 6 characters",
+      "alreadyHaveAccount": "Already have an account?",
+      "dontHaveAccount": "Don't have an account?",
+      "confirmPassword": "Confirm Password",
+      "passwordsDoNotMatch": "Passwords do not match"
+    }
