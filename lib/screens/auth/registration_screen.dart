@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../cores/services/auth_service.dart';
 import '../../l10n/app_localizations.dart';
+import '../../../cores/services/auth_service.dart';
 import 'login_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -12,11 +12,11 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final _formKey = GlobalKey<FormState>();
-  String _email = '', _password = '', _confirmPassword = '';
+  String _firstName = '', _email = '', _password = '', _confirmPassword = '';
   String? _errorMessage;
   final AuthService _authService = AuthService();
 
-  void _submit() async {
+  Future<void> _submit() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
@@ -27,10 +27,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         return;
       }
 
-      final result = await _authService.registerWithEmail(_email, _password);
+      final result = await _authService.registerWithEmail(_email, _password, _firstName);
       if (result == null) {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (_) => const LoginScreen()));
+        if (mounted) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (_) => const LoginScreen()),
+          );
+        }
       } else {
         setState(() => _errorMessage = result);
       }
@@ -42,51 +46,133 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     final loc = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBar(title: Text(loc.register)),
+      backgroundColor: const Color(0xFF071f35),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF071f35),
+        elevation: 0,
+        title: Text(
+          loc.register,
+          style: const TextStyle(color: Colors.white),
+        ),
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
         child: Form(
           key: _formKey,
-          child: Column(
+          child: ListView(
             children: [
               if (_errorMessage != null)
-                Text(_errorMessage!, style: const TextStyle(color: Colors.red)),
-              TextFormField(
-                decoration: InputDecoration(labelText: loc.email),
-                onSaved: (val) => _email = val!,
-                validator: (val) =>
-                val!.isEmpty ? loc.emailEmptyError : null,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    _errorMessage!,
+                    style: const TextStyle(color: Colors.redAccent),
+                  ),
+                ),
+              _buildTextField(
+                label: loc.firstName,
+                keyboardType: TextInputType.name,
+                onSaved: (val) => _firstName = val!.trim(),
+                validator: (val) {
+                  if (val == null || val.trim().isEmpty) {
+                    return loc.firstNameEmptyError;
+                  }
+                  final nameRegExp = RegExp(r"^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ\s'-]+$");
+                  if (!nameRegExp.hasMatch(val.trim())) {
+                    return loc.firstNameInvalidError;
+                  }
+                  return null;
+                },
               ),
-              TextFormField(
-                decoration: InputDecoration(labelText: loc.password),
+              const SizedBox(height: 16),
+              _buildTextField(
+                label: loc.email,
+                keyboardType: TextInputType.emailAddress,
+                onSaved: (val) => _email = val!.trim(),
+                validator: (val) => val == null || val.trim().isEmpty
+                    ? loc.emailEmptyError
+                    : null,
+              ),
+              const SizedBox(height: 16),
+              _buildTextField(
+                label: loc.password,
                 obscureText: true,
-                onSaved: (val) => _password = val!,
-                validator: (val) => (val == null || val.length < 6)
+                onSaved: (val) => _password = val!.trim(),
+                validator: (val) => val == null || val.length < 6
                     ? loc.passwordShortError
                     : null,
               ),
-              TextFormField(
-                decoration: InputDecoration(labelText: loc.confirmPassword),
+              const SizedBox(height: 16),
+              _buildTextField(
+                label: loc.confirmPassword,
                 obscureText: true,
-                onSaved: (val) => _confirmPassword = val!,
+                onSaved: (val) => _confirmPassword = val!.trim(),
+              ),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.cyanAccent,
+                  foregroundColor: Colors.black,
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: _submit,
+                child: Text(
+                  loc.register,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
               const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: _submit,
-                child: Text(loc.register),
-              ),
-              const SizedBox(height: 8),
               TextButton(
                 onPressed: () {
                   Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (_) => const LoginScreen()));
+                    context,
+                    MaterialPageRoute(builder: (_) => const LoginScreen()),
+                  );
                 },
-                child: Text(loc.alreadyHaveAccount),
+                child: Text(
+                  loc.alreadyHaveAccount,
+                  style: const TextStyle(color: Colors.white70),
+                ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildTextField({
+    required String label,
+    bool obscureText = false,
+    required void Function(String?) onSaved,
+    FormFieldValidator<String>? validator,
+    TextInputType keyboardType = TextInputType.text,
+  }) {
+    return TextFormField(
+      keyboardType: keyboardType,
+      style: const TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: const TextStyle(color: Colors.white70),
+        filled: true,
+        fillColor: Colors.white10,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.white24),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.cyanAccent),
+        ),
+      ),
+      obscureText: obscureText,
+      onSaved: onSaved,
+      validator: validator,
     );
   }
 }

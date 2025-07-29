@@ -37,4 +37,112 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordsDoNotMatch => 'Passwords do not match';
+
+  @override
+  String get firstName => 'First Name';
+
+  @override
+  String get firstNameEmptyError => 'Please enter your first name';
+
+  @override
+  String homeGreeting(Object name) {
+    return 'Hello, $name';
+  }
+
+  @override
+  String get steps => 'Steps';
+
+  @override
+  String get sleep => 'Sleep';
+
+  @override
+  String get water => 'Water';
+
+  @override
+  String get heartRate => 'Heart rate';
+
+  @override
+  String get cycling => 'Cycling';
+
+  @override
+  String get calories => 'Calories';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get training => 'Training';
+
+  @override
+  String get exercises => 'Exercises';
+
+  @override
+  String get report => 'Report';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get logout => 'Log out';
+
+  @override
+  String get firstNameInvalidError =>
+      'Only letters with or without accents are allowed!';
+
+  @override
+  String get addTraining => 'Add training';
+
+  @override
+  String get selectCategory => 'Select category';
+
+  @override
+  String get selectExercise => 'Select exercise';
+
+  @override
+  String get addWorkout => 'Add Workout';
+
+  @override
+  String get chooseCategory => 'Choose a category';
+
+  @override
+  String get chest => 'Chest';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String get legs => 'Legs';
+
+  @override
+  String get arms => 'Arms';
+
+  @override
+  String get benchPress => 'Bench Press';
+
+  @override
+  String get pushUps => 'Push-ups';
+
+  @override
+  String get pullUps => 'Pull-ups';
+
+  @override
+  String get squats => 'Squats';
+
+  @override
+  String get bicepCurls => 'Bicep curls';
+
+  @override
+  String get sets => 'Sets';
+
+  @override
+  String get reps => 'Reps';
+
+  @override
+  String get weightOptional => 'Weight (optional)';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get close => 'Close';
 }

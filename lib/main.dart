@@ -13,18 +13,24 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const BeeApp());
+  runApp(const EdzesnaploApp());
 }
 
-class BeeApp extends StatelessWidget {
-  const BeeApp({super.key});
+class EdzesnaploApp extends StatelessWidget {
+  const EdzesnaploApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Edzésnapló',
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        scaffoldBackgroundColor: const Color(0xFF071F35), // sötét háttér
+        useMaterial3: true,
+        fontFamily: 'Roboto',
+      ),
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -39,10 +45,6 @@ class BeeApp extends StatelessWidget {
         }
         return supportedLocales.first;
       },
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
-        useMaterial3: true,
-      ),
       home: StreamBuilder(
         stream: AuthService().authStateChanges,
         builder: (context, snapshot) {

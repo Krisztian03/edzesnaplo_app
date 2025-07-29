@@ -14,15 +14,25 @@ class AuthService {
   }
 
   // Register - Regisztráció
-  Future<String?> registerWithEmail(String email, String password) async {
+  Future<String?> registerWithEmail(String email, String password, String firstName) async {
     try {
-      await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      final userCredential = await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+
+      await userCredential.user?.updateDisplayName(firstName);
+      await userCredential.user?.reload();
+
       return null;
     } on FirebaseAuthException catch (e) {
       return e.message;
+    } catch (e) {
+      return 'Unknown error occurred';
     }
   }
+
 
   // Sign out - Kijelentkezés
   Future<void> signOut() async => await _auth.signOut();
