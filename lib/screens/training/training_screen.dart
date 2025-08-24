@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../cores/services/workout_service.dart';
 import '../../l10n/app_localizations.dart';
+import '../../models/Exercise.dart';
+import '../../models/Workout_entry.dart';
 import '../exercises/exercise_details_screen.dart';
 
 class TrainingScreen extends StatefulWidget {
@@ -15,6 +18,15 @@ class _TrainingScreenState extends State<TrainingScreen> {
   DateTime _selectedDate = DateTime.now();
   bool _showCategorySheet = false;
   String? _selectedCategoryKey;
+  late final workoutService = WorkoutService();
+  List<WorkoutEntry> _workouts = [];
+
+
+  Future<void> _loadWorkouts() async {
+    final workouts = await workoutService.getWorkoutsForDay(_selectedDate);
+    setState(() => _workouts = workouts.cast<WorkoutEntry>());
+  }
+
 
   void _pickDateFromCalendar() async {
     final picked = await showDatePicker(
@@ -52,6 +64,14 @@ class _TrainingScreenState extends State<TrainingScreen> {
       exercises: ['bicepCurls'],
     ),
   ];
+
+
+  @override
+  void initState() {
+    super.initState();
+    _loadWorkouts();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -147,12 +167,32 @@ class _TrainingScreenState extends State<TrainingScreen> {
               ),
               const SizedBox(height: 16),
               Expanded(
-                child: Center(
+                child: _workouts.isEmpty
+                    ? Center(
                   child: Text(
-                    '${loc.training} - ${DateFormat.yMMMd(Localizations.localeOf(context).languageCode).format(_selectedDate)}',
-                    style:
-                    const TextStyle(color: Colors.white, fontSize: 18),
+                    loc.noWorkouts,
+                    style: const TextStyle(color: Colors.white70),
                   ),
+                )
+                    : ListView.builder(
+                  itemCount: _workouts.length,
+                  itemBuilder: (_, i) {
+                    final e = _workouts[i];
+                    return ListTile(
+                      title: Text(loc.getString(e.key), style: const TextStyle(color: Colors.white)),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: e.exercises.map((exercise) {
+                          final sets = exercise.sets.map((s) => '${s.reps}x${s.weight}kg').join(', ');
+                          return Text(
+                            '${exercise.name}: $sets',
+                            style: const TextStyle(color: Colors.white70),
+                          );
+                        }).toList(),
+                      ),
+                    );
+                  },
+
                 ),
               ),
             ],
@@ -239,18 +279,32 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                       title: Text(loc.getString(exKey)),
                                       trailing: const Icon(Icons.add),
                                       onTap: () async {
-                                        final result = await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (_) => ExerciseDetailsScreen(
-                                                exerciseKey: exKey),
-                                          ),
-                                        );
 
-                                        if (result != null) {
-                                          print('Mentett gyakorlat: $result');
+                                      final result = await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                      builder: (_) => ExerciseDetailsScreen(exerciseKey: exKey),
+                                      ),
+                                      );
+
+                                      if (result != null) {
+                                        if (result is Exercise) {
+                                          final existingEntry = _workouts.firstWhere(
+                                                (e) => e.date.day == _selectedDate.day &&
+                                                e.date.month == _selectedDate.month &&
+                                                e.date.year == _selectedDate.year,
+                                            orElse: () => WorkoutEntry(key: exKey, date: _selectedDate, exercises: []),
+                                          );
+
+                                          existingEntry.exercises.add(result);
+
+                                          await workoutService.saveWorkout(existingEntry);
+                                          await _loadWorkouts();
                                           setState(() => _showCategorySheet = false);
                                         }
+                                      await _loadWorkouts();
+                                      setState(() => _showCategorySheet = false);
+                                      }
                                       },
                                     ))
                                         .toList(),

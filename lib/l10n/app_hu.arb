@@ -25,11 +25,34 @@
  "exercises": "Gyakorlatok",
  "report": "Riport",
  "profile": "Profil",
+ "statusWalking": "Sétál",
+ "statusStopped": "Áll",
+ "mondayShort": "Hét",
+ "tuesdayShort": "Kedd",
+ "wednesdayShort": "Sze",
+ "thursdayShort": "Csüt",
+ "fridayShort": "Pén",
+ "saturdayShort": "Szo",
+ "sundayShort": "Vas",
+ "stepCounterError": "Lépésszámláló hiba!",
+ "pedestrianStatusError": "Lépésszámláló státusz hiba!",
+
+
+ "invalidAmount": "Adj meg egy érvényes mennyiséget!",
+ "maxPerServingExceeded": "Egyszerre legfeljebb 5 liter adható hozzá!",
+ "dailyLimitExceeded": "Elérted a napi maximumot (10 liter)!",
+ "waterIntake": "Vízfogyasztás",
+ "enterWaterAmount": "Add meg a mennyiséget (ml)",
+ "waterAddedSuccess": "Sikeresen hozzáadva!",
+ "add": "Hozzáadás",
+ "close": "Bezárás",
+
 
  "logout": "Kijelentkezés",
  "firstNameInvalidError": "Csak ékezetes vagy angol betűk lehetnek!",
 
  "addTraining": "Edzés hozzáadása",
+ "noWorkouts": "Nincs rögzített edzés erre a napra.",
  "selectCategory": "Válassz kategóriát",
  "selectExercise": "Válassz gyakorlatot",
 
@@ -47,8 +70,8 @@
  "sets": "Sorozatok",
  "reps": "Ismétlések",
  "weightOptional": "Súly (opcionális)",
- "save": "Mentés",
- "close": "Bezárás"
+ "save": "Mentés"
+
 
 
 

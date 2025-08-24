@@ -84,6 +84,64 @@ class AppLocalizationsHu extends AppLocalizations {
   String get profile => 'Profil';
 
   @override
+  String get statusWalking => 'Sétál';
+
+  @override
+  String get statusStopped => 'Áll';
+
+  @override
+  String get mondayShort => 'Hét';
+
+  @override
+  String get tuesdayShort => 'Kedd';
+
+  @override
+  String get wednesdayShort => 'Sze';
+
+  @override
+  String get thursdayShort => 'Csüt';
+
+  @override
+  String get fridayShort => 'Pén';
+
+  @override
+  String get saturdayShort => 'Szo';
+
+  @override
+  String get sundayShort => 'Vas';
+
+  @override
+  String get stepCounterError => 'Lépésszámláló hiba!';
+
+  @override
+  String get pedestrianStatusError => 'Lépésszámláló státusz hiba!';
+
+  @override
+  String get invalidAmount => 'Adj meg egy érvényes mennyiséget!';
+
+  @override
+  String get maxPerServingExceeded =>
+      'Egyszerre legfeljebb 5 liter adható hozzá!';
+
+  @override
+  String get dailyLimitExceeded => 'Elérted a napi maximumot (10 liter)!';
+
+  @override
+  String get waterIntake => 'Vízfogyasztás';
+
+  @override
+  String get enterWaterAmount => 'Add meg a mennyiséget (ml)';
+
+  @override
+  String get waterAddedSuccess => 'Sikeresen hozzáadva!';
+
+  @override
+  String get add => 'Hozzáadás';
+
+  @override
+  String get close => 'Bezárás';
+
+  @override
   String get logout => 'Kijelentkezés';
 
   @override
@@ -92,6 +150,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get addTraining => 'Edzés hozzáadása';
+
+  @override
+  String get noWorkouts => 'Nincs rögzített edzés erre a napra.';
 
   @override
   String get selectCategory => 'Válassz kategóriát';
@@ -143,7 +204,4 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get save => 'Mentés';
-
-  @override
-  String get close => 'Bezárás';
 }

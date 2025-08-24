@@ -27,11 +27,33 @@
   "exercises": "Exercises",
   "report": "Report",
   "profile": "Profile",
+  "statusWalking": "Walking",
+  "statusStopped": "Stopped",
+  "mondayShort": "Mon",
+  "tuesdayShort": "Tue",
+  "wednesdayShort": "Wed",
+  "thursdayShort": "Thu",
+  "fridayShort": "Fri",
+  "saturdayShort": "Sat",
+  "sundayShort": "Sun",
+  "stepCounterError": " Step Counter Error!",
+  "pedestrianStatusError": "Pedestrian Status error!",
+
+  "invalidAmount": "Please enter a valid amount!",
+  "maxPerServingExceeded": "You can add up to 5 liters per serving!",
+  "dailyLimitExceeded": "You’ve reached the daily limit (10 liters)!",
+  "waterIntake": "Water intake",
+  "enterWaterAmount": "Enter amount in ml",
+  "waterAddedSuccess": "Water Added",
+  "add": "Add",
+  "close": "Close",
+
 
   "logout": "Log out",
   "firstNameInvalidError": "Only letters with or without accents are allowed!",
 
   "addTraining": "Add training",
+  "noWorkouts": "There are no scheduled workouts for this day.",
   "selectCategory": "Select category",
   "selectExercise": "Select exercise",
 
@@ -49,6 +71,5 @@
   "sets": "Sets",
   "reps": "Reps",
   "weightOptional": "Weight (optional)",
-  "save": "Save",
-  "close": "Close"
+  "save": "Save"
 }

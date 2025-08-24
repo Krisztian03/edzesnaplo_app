@@ -83,6 +83,64 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profile => 'Profile';
 
   @override
+  String get statusWalking => 'Walking';
+
+  @override
+  String get statusStopped => 'Stopped';
+
+  @override
+  String get mondayShort => 'Mon';
+
+  @override
+  String get tuesdayShort => 'Tue';
+
+  @override
+  String get wednesdayShort => 'Wed';
+
+  @override
+  String get thursdayShort => 'Thu';
+
+  @override
+  String get fridayShort => 'Fri';
+
+  @override
+  String get saturdayShort => 'Sat';
+
+  @override
+  String get sundayShort => 'Sun';
+
+  @override
+  String get stepCounterError => ' Step Counter Error!';
+
+  @override
+  String get pedestrianStatusError => 'Pedestrian Status error!';
+
+  @override
+  String get invalidAmount => 'Please enter a valid amount!';
+
+  @override
+  String get maxPerServingExceeded => 'You can add up to 5 liters per serving!';
+
+  @override
+  String get dailyLimitExceeded =>
+      'You’ve reached the daily limit (10 liters)!';
+
+  @override
+  String get waterIntake => 'Water intake';
+
+  @override
+  String get enterWaterAmount => 'Enter amount in ml';
+
+  @override
+  String get waterAddedSuccess => 'Water Added';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get close => 'Close';
+
+  @override
   String get logout => 'Log out';
 
   @override
@@ -91,6 +149,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addTraining => 'Add training';
+
+  @override
+  String get noWorkouts => 'There are no scheduled workouts for this day.';
 
   @override
   String get selectCategory => 'Select category';
@@ -142,7 +203,4 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get save => 'Save';
-
-  @override
-  String get close => 'Close';
 }

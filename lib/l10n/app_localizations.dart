@@ -242,6 +242,120 @@ abstract class AppLocalizations {
   /// **'Profile'**
   String get profile;
 
+  /// No description provided for @statusWalking.
+  ///
+  /// In en, this message translates to:
+  /// **'Walking'**
+  String get statusWalking;
+
+  /// No description provided for @statusStopped.
+  ///
+  /// In en, this message translates to:
+  /// **'Stopped'**
+  String get statusStopped;
+
+  /// No description provided for @mondayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Mon'**
+  String get mondayShort;
+
+  /// No description provided for @tuesdayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Tue'**
+  String get tuesdayShort;
+
+  /// No description provided for @wednesdayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Wed'**
+  String get wednesdayShort;
+
+  /// No description provided for @thursdayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Thu'**
+  String get thursdayShort;
+
+  /// No description provided for @fridayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Fri'**
+  String get fridayShort;
+
+  /// No description provided for @saturdayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Sat'**
+  String get saturdayShort;
+
+  /// No description provided for @sundayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Sun'**
+  String get sundayShort;
+
+  /// No description provided for @stepCounterError.
+  ///
+  /// In en, this message translates to:
+  /// **' Step Counter Error!'**
+  String get stepCounterError;
+
+  /// No description provided for @pedestrianStatusError.
+  ///
+  /// In en, this message translates to:
+  /// **'Pedestrian Status error!'**
+  String get pedestrianStatusError;
+
+  /// No description provided for @invalidAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid amount!'**
+  String get invalidAmount;
+
+  /// No description provided for @maxPerServingExceeded.
+  ///
+  /// In en, this message translates to:
+  /// **'You can add up to 5 liters per serving!'**
+  String get maxPerServingExceeded;
+
+  /// No description provided for @dailyLimitExceeded.
+  ///
+  /// In en, this message translates to:
+  /// **'You’ve reached the daily limit (10 liters)!'**
+  String get dailyLimitExceeded;
+
+  /// No description provided for @waterIntake.
+  ///
+  /// In en, this message translates to:
+  /// **'Water intake'**
+  String get waterIntake;
+
+  /// No description provided for @enterWaterAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter amount in ml'**
+  String get enterWaterAmount;
+
+  /// No description provided for @waterAddedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Water Added'**
+  String get waterAddedSuccess;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
   /// No description provided for @logout.
   ///
   /// In en, this message translates to:
@@ -259,6 +373,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add training'**
   String get addTraining;
+
+  /// No description provided for @noWorkouts.
+  ///
+  /// In en, this message translates to:
+  /// **'There are no scheduled workouts for this day.'**
+  String get noWorkouts;
 
   /// No description provided for @selectCategory.
   ///
@@ -361,12 +481,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save'**
   String get save;
-
-  /// No description provided for @close.
-  ///
-  /// In en, this message translates to:
-  /// **'Close'**
-  String get close;
 }
 
 class _AppLocalizationsDelegate
