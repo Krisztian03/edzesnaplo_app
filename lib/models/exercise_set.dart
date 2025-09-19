@@ -1,18 +1,18 @@
 class ExerciseSet {
-  final String weight;
-  final int reps;
+  int reps;
+  double weight;
 
-  ExerciseSet({required this.weight, required this.reps});
+  ExerciseSet({required this.reps, required this.weight});
 
   Map<String, dynamic> toJson() => {
-    'weight': weight,
     'reps': reps,
+    'weight': weight,
   };
 
   factory ExerciseSet.fromJson(Map<String, dynamic> json) {
     return ExerciseSet(
-      weight: json['weight'],
-      reps: json['reps'],
+      reps: json['reps'] ?? 0,
+      weight: (json['weight'] ?? 0).toDouble(),
     );
   }
 }

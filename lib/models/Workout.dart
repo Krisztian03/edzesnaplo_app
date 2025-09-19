@@ -1,9 +1,29 @@
-import 'Exercise.dart';
+import 'package:flutter/material.dart';
 
-class Workout{
+class WorkoutCategory {
+  final String key;
+  final IconData icon;
+  final List<WorkoutSubCategory> subCategories;
 
-  final String name;
-  final List<Exercise> exercises;
+  WorkoutCategory({
+    required this.key,
+    required this.icon,
+    required this.subCategories,
+  });
+}
 
-  Workout({required this.name, required this.exercises});
+class WorkoutSubCategory {
+  final String key;
+  final List<WorkoutExercise> exercises;
+
+  WorkoutSubCategory({
+    required this.key,
+    required this.exercises,
+  });
+}
+
+class WorkoutExercise {
+  final String key;
+
+  WorkoutExercise({required this.key});
 }

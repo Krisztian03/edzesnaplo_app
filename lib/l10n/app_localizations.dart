@@ -200,12 +200,6 @@ abstract class AppLocalizations {
   /// **'Heart rate'**
   String get heartRate;
 
-  /// No description provided for @cycling.
-  ///
-  /// In en, this message translates to:
-  /// **'Cycling'**
-  String get cycling;
-
   /// No description provided for @calories.
   ///
   /// In en, this message translates to:
@@ -428,23 +422,113 @@ abstract class AppLocalizations {
   /// **'Arms'**
   String get arms;
 
+  /// No description provided for @shoulders.
+  ///
+  /// In en, this message translates to:
+  /// **'Shoulders'**
+  String get shoulders;
+
+  /// No description provided for @core.
+  ///
+  /// In en, this message translates to:
+  /// **'Core'**
+  String get core;
+
+  /// No description provided for @cardio.
+  ///
+  /// In en, this message translates to:
+  /// **'Cardio'**
+  String get cardio;
+
   /// No description provided for @benchPress.
   ///
   /// In en, this message translates to:
   /// **'Bench Press'**
   String get benchPress;
 
+  /// No description provided for @inclineBenchPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Incline Bench Press'**
+  String get inclineBenchPress;
+
+  /// No description provided for @declineBenchPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Decline Bench Press'**
+  String get declineBenchPress;
+
+  /// No description provided for @chestFly.
+  ///
+  /// In en, this message translates to:
+  /// **'Chest Fly'**
+  String get chestFly;
+
   /// No description provided for @pushUps.
   ///
   /// In en, this message translates to:
-  /// **'Push-ups'**
+  /// **'Push Ups'**
   String get pushUps;
+
+  /// No description provided for @cableCrossover.
+  ///
+  /// In en, this message translates to:
+  /// **'Cable Crossover'**
+  String get cableCrossover;
+
+  /// No description provided for @dips.
+  ///
+  /// In en, this message translates to:
+  /// **'Dips'**
+  String get dips;
 
   /// No description provided for @pullUps.
   ///
   /// In en, this message translates to:
-  /// **'Pull-ups'**
+  /// **'Pull Ups'**
   String get pullUps;
+
+  /// No description provided for @chinUps.
+  ///
+  /// In en, this message translates to:
+  /// **'Chin Ups'**
+  String get chinUps;
+
+  /// No description provided for @barbellRow.
+  ///
+  /// In en, this message translates to:
+  /// **'Barbell Row'**
+  String get barbellRow;
+
+  /// No description provided for @dumbbellRow.
+  ///
+  /// In en, this message translates to:
+  /// **'Dumbbell Row'**
+  String get dumbbellRow;
+
+  /// No description provided for @latPulldown.
+  ///
+  /// In en, this message translates to:
+  /// **'Lat Pulldown'**
+  String get latPulldown;
+
+  /// No description provided for @deadlift.
+  ///
+  /// In en, this message translates to:
+  /// **'Deadlift'**
+  String get deadlift;
+
+  /// No description provided for @facePull.
+  ///
+  /// In en, this message translates to:
+  /// **'Face Pull'**
+  String get facePull;
+
+  /// No description provided for @tBarRow.
+  ///
+  /// In en, this message translates to:
+  /// **'T-Bar Row'**
+  String get tBarRow;
 
   /// No description provided for @squats.
   ///
@@ -452,11 +536,239 @@ abstract class AppLocalizations {
   /// **'Squats'**
   String get squats;
 
+  /// No description provided for @frontSquats.
+  ///
+  /// In en, this message translates to:
+  /// **'Front Squats'**
+  String get frontSquats;
+
+  /// No description provided for @lunges.
+  ///
+  /// In en, this message translates to:
+  /// **'Lunges'**
+  String get lunges;
+
+  /// No description provided for @stepUps.
+  ///
+  /// In en, this message translates to:
+  /// **'Step Ups'**
+  String get stepUps;
+
+  /// No description provided for @legPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Leg Press'**
+  String get legPress;
+
+  /// No description provided for @romanianDeadlift.
+  ///
+  /// In en, this message translates to:
+  /// **'Romanian Deadlift'**
+  String get romanianDeadlift;
+
+  /// No description provided for @legExtension.
+  ///
+  /// In en, this message translates to:
+  /// **'Leg Extension'**
+  String get legExtension;
+
+  /// No description provided for @hamstringCurl.
+  ///
+  /// In en, this message translates to:
+  /// **'Hamstring Curl'**
+  String get hamstringCurl;
+
+  /// No description provided for @calfRaise.
+  ///
+  /// In en, this message translates to:
+  /// **'Calf Raise'**
+  String get calfRaise;
+
   /// No description provided for @bicepCurls.
   ///
   /// In en, this message translates to:
-  /// **'Bicep curls'**
+  /// **'Bicep Curls'**
   String get bicepCurls;
+
+  /// No description provided for @hammerCurls.
+  ///
+  /// In en, this message translates to:
+  /// **'Hammer Curls'**
+  String get hammerCurls;
+
+  /// No description provided for @concentrationCurl.
+  ///
+  /// In en, this message translates to:
+  /// **'Concentration Curl'**
+  String get concentrationCurl;
+
+  /// No description provided for @tricepPushdown.
+  ///
+  /// In en, this message translates to:
+  /// **'Tricep Pushdown'**
+  String get tricepPushdown;
+
+  /// No description provided for @tricepDips.
+  ///
+  /// In en, this message translates to:
+  /// **'Tricep Dips'**
+  String get tricepDips;
+
+  /// No description provided for @skullCrushers.
+  ///
+  /// In en, this message translates to:
+  /// **'Skull Crushers'**
+  String get skullCrushers;
+
+  /// No description provided for @overheadTricepExtension.
+  ///
+  /// In en, this message translates to:
+  /// **'Overhead Tricep Extension'**
+  String get overheadTricepExtension;
+
+  /// No description provided for @closeGripBenchPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Close Grip Bench Press'**
+  String get closeGripBenchPress;
+
+  /// No description provided for @shoulderPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Shoulder Press'**
+  String get shoulderPress;
+
+  /// No description provided for @lateralRaise.
+  ///
+  /// In en, this message translates to:
+  /// **'Lateral Raise'**
+  String get lateralRaise;
+
+  /// No description provided for @frontRaise.
+  ///
+  /// In en, this message translates to:
+  /// **'Front Raise'**
+  String get frontRaise;
+
+  /// No description provided for @rearDeltFly.
+  ///
+  /// In en, this message translates to:
+  /// **'Rear Delt Fly'**
+  String get rearDeltFly;
+
+  /// No description provided for @arnoldPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Arnold Press'**
+  String get arnoldPress;
+
+  /// No description provided for @shrugs.
+  ///
+  /// In en, this message translates to:
+  /// **'Shrugs'**
+  String get shrugs;
+
+  /// No description provided for @uprightRow.
+  ///
+  /// In en, this message translates to:
+  /// **'Upright Row'**
+  String get uprightRow;
+
+  /// No description provided for @plank.
+  ///
+  /// In en, this message translates to:
+  /// **'Plank'**
+  String get plank;
+
+  /// No description provided for @crunches.
+  ///
+  /// In en, this message translates to:
+  /// **'Crunches'**
+  String get crunches;
+
+  /// No description provided for @legRaises.
+  ///
+  /// In en, this message translates to:
+  /// **'Leg Raises'**
+  String get legRaises;
+
+  /// No description provided for @russianTwist.
+  ///
+  /// In en, this message translates to:
+  /// **'Russian Twist'**
+  String get russianTwist;
+
+  /// No description provided for @bicycleCrunch.
+  ///
+  /// In en, this message translates to:
+  /// **'Bicycle Crunch'**
+  String get bicycleCrunch;
+
+  /// No description provided for @mountainClimbers.
+  ///
+  /// In en, this message translates to:
+  /// **'Mountain Climbers'**
+  String get mountainClimbers;
+
+  /// No description provided for @hangingLegRaise.
+  ///
+  /// In en, this message translates to:
+  /// **'Hanging Leg Raise'**
+  String get hangingLegRaise;
+
+  /// No description provided for @abRollout.
+  ///
+  /// In en, this message translates to:
+  /// **'Ab Rollout'**
+  String get abRollout;
+
+  /// No description provided for @running.
+  ///
+  /// In en, this message translates to:
+  /// **'Running'**
+  String get running;
+
+  /// No description provided for @cycling.
+  ///
+  /// In en, this message translates to:
+  /// **'Cycling'**
+  String get cycling;
+
+  /// No description provided for @rowing.
+  ///
+  /// In en, this message translates to:
+  /// **'Rowing'**
+  String get rowing;
+
+  /// No description provided for @jumpRope.
+  ///
+  /// In en, this message translates to:
+  /// **'Jump Rope'**
+  String get jumpRope;
+
+  /// No description provided for @stairClimber.
+  ///
+  /// In en, this message translates to:
+  /// **'Stair Climber'**
+  String get stairClimber;
+
+  /// No description provided for @elliptical.
+  ///
+  /// In en, this message translates to:
+  /// **'Elliptical'**
+  String get elliptical;
+
+  /// No description provided for @swimming.
+  ///
+  /// In en, this message translates to:
+  /// **'Swimming'**
+  String get swimming;
+
+  /// No description provided for @hiit.
+  ///
+  /// In en, this message translates to:
+  /// **'HIIT'**
+  String get hiit;
 
   /// No description provided for @sets.
   ///
@@ -481,6 +793,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save'**
   String get save;
+
+  /// No description provided for @loadTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Load template'**
+  String get loadTemplate;
 }
 
 class _AppLocalizationsDelegate

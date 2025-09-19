@@ -18,7 +18,6 @@
  "sleep": "Alvás",
  "water": "Víz",
  "heartRate": "Heart rate",
- "cycling": "Biciklizés",
  "calories": "Kalória",
  "home": "Főoldal",
  "training": "Edzés",
@@ -62,17 +61,76 @@
  "back": "Hát",
  "legs": "Láb",
  "arms": "Kar",
+ "shoulders": "Váll",
+ "core": "Törzs",
+ "cardio": "Kardió",
+
  "benchPress": "Fekvenyomás",
+ "inclineBenchPress": "Ferdepados nyomás",
+ "declineBenchPress": "Negatív padon nyomás",
+ "chestFly": "Tárogatás",
  "pushUps": "Fekvőtámasz",
+ "cableCrossover": "Kábelkereszt",
+ "dips": "Tolódzkodás",
+
  "pullUps": "Húzódzkodás",
+ "chinUps": "Állhoz húzás",
+ "barbellRow": "Evezés rúddal",
+ "dumbbellRow": "Evezés kézisúlyzóval",
+ "latPulldown": "Lehúzás csigán",
+ "deadlift": "Felhúzás",
+ "facePull": "Archoz húzás",
+ "tBarRow": "T-rudas evezés",
+
  "squats": "Guggolás",
+ "frontSquats": "Elől guggolás",
+ "lunges": "Kitörés",
+ "stepUps": "Fellépés",
+ "legPress": "Lábtoló",
+ "romanianDeadlift": "Román felhúzás",
+ "legExtension": "Lábtoló nyújtás",
+ "hamstringCurl": "Combhajlító gép",
+ "calfRaise": "Vádliemelés",
+
  "bicepCurls": "Bicepsz hajlítás",
+ "hammerCurls": "Kalapács bicepsz",
+ "concentrationCurl": "Koncentrált bicepsz",
+ "tricepPushdown": "Tricepsz lenyomás",
+ "tricepDips": "Tricepsz tolódzkodás",
+ "skullCrushers": "Homlokra engedés",
+ "overheadTricepExtension": "Tricepsz nyújtás fej fölött",
+ "closeGripBenchPress": "Szűknyomás",
+
+ "shoulderPress": "Vállnyomás",
+ "lateralRaise": "Oldalemelés",
+ "frontRaise": "Előreemelés",
+ "rearDeltFly": "Hátsó váll tárogatás",
+ "arnoldPress": "Arnold nyomás",
+ "shrugs": "Vállvonogatás",
+ "uprightRow": "Állig húzás",
+
+ "plank": "Plank",
+ "crunches": "Hasprés",
+ "legRaises": "Lábemelés",
+ "russianTwist": "Orosz twist",
+ "bicycleCrunch": "Kerékpár hasprés",
+ "mountainClimbers": "Hegymászó",
+ "hangingLegRaise": "Lógás lábemeléssel",
+ "abRollout": "Hasgörgő",
+
+ "running": "Futás",
+ "cycling": "Kerékpározás",
+ "rowing": "Evezés",
+ "jumpRope": "Ugrókötél",
+ "stairClimber": "Lépcsőzőgép",
+ "elliptical": "Ellipszis tréner",
+ "swimming": "Úszás",
+ "hiit": "HIIT edzés",
+
  "sets": "Sorozatok",
  "reps": "Ismétlések",
  "weightOptional": "Súly (opcionális)",
- "save": "Mentés"
 
-
-
-
+ "save": "Mentés",
+ "loadTemplate": "Sablon betöltése"
 }

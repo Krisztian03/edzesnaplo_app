@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:edzesnaplo/screens/report/report_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late StreamSubscription<int> _stepSubscription;
   final StepTrackerService _stepTrackerService = StepTrackerService();
   final DailyDataService _dailyDataService = DailyDataService();
-
+  final userId = FirebaseAuth.instance.currentUser?.uid ?? '';
 
 
   @override
@@ -262,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
       _buildDashboard(name, loc),
       const TrainingScreen(),
       Center(child: Text(loc.exercises, style: const TextStyle(color: Colors.white))),
-      Center(child: Text(loc.report, style: const TextStyle(color: Colors.white))),
+      ReportScreen(),
       const ProfileScreen(),
     ];
 

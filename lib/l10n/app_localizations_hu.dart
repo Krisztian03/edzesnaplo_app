@@ -63,9 +63,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get heartRate => 'Heart rate';
 
   @override
-  String get cycling => 'Biciklizés';
-
-  @override
   String get calories => 'Kalória';
 
   @override
@@ -179,19 +176,178 @@ class AppLocalizationsHu extends AppLocalizations {
   String get arms => 'Kar';
 
   @override
+  String get shoulders => 'Váll';
+
+  @override
+  String get core => 'Törzs';
+
+  @override
+  String get cardio => 'Kardió';
+
+  @override
   String get benchPress => 'Fekvenyomás';
+
+  @override
+  String get inclineBenchPress => 'Ferdepados nyomás';
+
+  @override
+  String get declineBenchPress => 'Negatív padon nyomás';
+
+  @override
+  String get chestFly => 'Tárogatás';
 
   @override
   String get pushUps => 'Fekvőtámasz';
 
   @override
+  String get cableCrossover => 'Kábelkereszt';
+
+  @override
+  String get dips => 'Tolódzkodás';
+
+  @override
   String get pullUps => 'Húzódzkodás';
+
+  @override
+  String get chinUps => 'Állhoz húzás';
+
+  @override
+  String get barbellRow => 'Evezés rúddal';
+
+  @override
+  String get dumbbellRow => 'Evezés kézisúlyzóval';
+
+  @override
+  String get latPulldown => 'Lehúzás csigán';
+
+  @override
+  String get deadlift => 'Felhúzás';
+
+  @override
+  String get facePull => 'Archoz húzás';
+
+  @override
+  String get tBarRow => 'T-rudas evezés';
 
   @override
   String get squats => 'Guggolás';
 
   @override
+  String get frontSquats => 'Elől guggolás';
+
+  @override
+  String get lunges => 'Kitörés';
+
+  @override
+  String get stepUps => 'Fellépés';
+
+  @override
+  String get legPress => 'Lábtoló';
+
+  @override
+  String get romanianDeadlift => 'Román felhúzás';
+
+  @override
+  String get legExtension => 'Lábtoló nyújtás';
+
+  @override
+  String get hamstringCurl => 'Combhajlító gép';
+
+  @override
+  String get calfRaise => 'Vádliemelés';
+
+  @override
   String get bicepCurls => 'Bicepsz hajlítás';
+
+  @override
+  String get hammerCurls => 'Kalapács bicepsz';
+
+  @override
+  String get concentrationCurl => 'Koncentrált bicepsz';
+
+  @override
+  String get tricepPushdown => 'Tricepsz lenyomás';
+
+  @override
+  String get tricepDips => 'Tricepsz tolódzkodás';
+
+  @override
+  String get skullCrushers => 'Homlokra engedés';
+
+  @override
+  String get overheadTricepExtension => 'Tricepsz nyújtás fej fölött';
+
+  @override
+  String get closeGripBenchPress => 'Szűknyomás';
+
+  @override
+  String get shoulderPress => 'Vállnyomás';
+
+  @override
+  String get lateralRaise => 'Oldalemelés';
+
+  @override
+  String get frontRaise => 'Előreemelés';
+
+  @override
+  String get rearDeltFly => 'Hátsó váll tárogatás';
+
+  @override
+  String get arnoldPress => 'Arnold nyomás';
+
+  @override
+  String get shrugs => 'Vállvonogatás';
+
+  @override
+  String get uprightRow => 'Állig húzás';
+
+  @override
+  String get plank => 'Plank';
+
+  @override
+  String get crunches => 'Hasprés';
+
+  @override
+  String get legRaises => 'Lábemelés';
+
+  @override
+  String get russianTwist => 'Orosz twist';
+
+  @override
+  String get bicycleCrunch => 'Kerékpár hasprés';
+
+  @override
+  String get mountainClimbers => 'Hegymászó';
+
+  @override
+  String get hangingLegRaise => 'Lógás lábemeléssel';
+
+  @override
+  String get abRollout => 'Hasgörgő';
+
+  @override
+  String get running => 'Futás';
+
+  @override
+  String get cycling => 'Kerékpározás';
+
+  @override
+  String get rowing => 'Evezés';
+
+  @override
+  String get jumpRope => 'Ugrókötél';
+
+  @override
+  String get stairClimber => 'Lépcsőzőgép';
+
+  @override
+  String get elliptical => 'Ellipszis tréner';
+
+  @override
+  String get swimming => 'Úszás';
+
+  @override
+  String get hiit => 'HIIT edzés';
 
   @override
   String get sets => 'Sorozatok';
@@ -204,4 +360,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get save => 'Mentés';
+
+  @override
+  String get loadTemplate => 'Sablon betöltése';
 }

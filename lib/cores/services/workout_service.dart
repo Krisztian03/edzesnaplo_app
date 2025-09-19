@@ -10,11 +10,22 @@ class WorkoutService {
 
   Future<void> saveWorkout(WorkoutEntry entry) async {
     if (uid == null) return;
-    await _firestore
+    final docRef = await _firestore
         .collection('users')
         .doc(uid)
         .collection('workouts')
         .add(entry.toJson());
+    entry.id = docRef.id; // mentjük az ID-t, hogy később update-elni tudjuk
+  }
+
+  Future<void> updateWorkout(WorkoutEntry entry) async {
+    if (uid == null || entry.id == null) return;
+    await _firestore
+        .collection('users')
+        .doc(uid)
+        .collection('workouts')
+        .doc(entry.id)
+        .update(entry.toJson());
   }
 
   Future<List<WorkoutEntry>> getWorkoutsForDay(DateTime day) async {
@@ -30,6 +41,8 @@ class WorkoutService {
         .where('date', isLessThan: end.toIso8601String())
         .get();
 
-    return snapshot.docs.map((d) => WorkoutEntry.fromJson(d.data())).toList();
+    return snapshot.docs
+        .map((d) => WorkoutEntry.fromJson(d.data(), id: d.id))
+        .toList();
   }
 }

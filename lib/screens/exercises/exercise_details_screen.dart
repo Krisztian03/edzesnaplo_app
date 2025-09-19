@@ -1,48 +1,151 @@
-import 'package:edzesnaplo/screens/training/training_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../l10n/app_localizations.dart';
+import '../../models/Exercise.dart';
+import '../../models/exercise_set.dart';
+import '../../utils/tr.dart';
 
 class ExerciseDetailsScreen extends StatefulWidget {
-  final String exerciseKey;
+  final Exercise exercise;
 
-  const ExerciseDetailsScreen({super.key, required this.exerciseKey});
+  const ExerciseDetailsScreen({super.key, required this.exercise});
 
   @override
   State<ExerciseDetailsScreen> createState() => _ExerciseDetailsScreenState();
 }
 
 class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
-  final _setsController = TextEditingController();
-  final _repsController = TextEditingController();
-  final _weightController = TextEditingController();
+  static const int maxSets = 10;
+
+  late int sets;
+  late List<ExerciseSet> exerciseSets;
+  final TextEditingController notesController = TextEditingController();
+
+  double get volume {
+    double sum = 0;
+    for (int i = 0; i < sets; i++) {
+      sum += exerciseSets[i].reps * exerciseSets[i].weight;
+    }
+    return sum;
+  }
 
   @override
-  void dispose() {
-    _setsController.dispose();
-    _repsController.dispose();
-    _weightController.dispose();
-    super.dispose();
+  void initState() {
+    super.initState();
+    sets = widget.exercise.sets.length;
+    exerciseSets = List.generate(maxSets, (i) {
+      if (i < sets) return widget.exercise.sets[i];
+      return ExerciseSet(reps: 10, weight: 0);
+    });
+    notesController.text = '';
+  }
+
+  void _updateWeight(int index, double value) {
+    setState(() {
+      exerciseSets[index].weight = value;
+      if (index == 0) {
+        for (int i = 1; i < sets; i++) {
+          exerciseSets[i].weight = value;
+        }
+      }
+    });
+  }
+
+  void _updateReps(int index, int value) {
+    setState(() {
+      exerciseSets[index].reps = value;
+    });
   }
 
   void _save() {
-    final sets = int.tryParse(_setsController.text) ?? 0;
-    final reps = int.tryParse(_repsController.text) ?? 0;
-    final weight = double.tryParse(_weightController.text) ?? 0.0;
+    Navigator.pop(
+      context,
+      Exercise(
+        name: widget.exercise.name,
+        sets: exerciseSets.sublist(0, sets),
+        isCompleted: widget.exercise.isCompleted,
+      ),
+    );
+  }
 
-    if (sets > 0 && reps > 0) {
-      Navigator.pop(context, {
-        'exercise': widget.exerciseKey,
-        'sets': sets,
-        'reps': reps,
-        'weight': weight,
-      });
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter valid data')),
-      );
-    }
+  void _loadTemplate() {
+    setState(() {
+      sets = 3;
+      for (int i = 0; i < maxSets; i++) {
+        exerciseSets[i].reps = 10;
+        exerciseSets[i].weight = 50.0;
+      }
+      notesController.text = '';
+    });
+  }
+
+  Widget _buildStepper(String label, int value, void Function(int) onChanged,
+      {int min = 0, int max = 100}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(label, style: const TextStyle(fontSize: 16, color: Colors.white)),
+        Row(
+          children: [
+            IconButton(
+              icon: const Icon(Icons.remove, color: Colors.white),
+              onPressed: () {
+                if (value > min) onChanged(value - 1);
+              },
+            ),
+            Text('$value', style: const TextStyle(fontSize: 16, color: Colors.white)),
+            IconButton(
+              icon: const Icon(Icons.add, color: Colors.white),
+              onPressed: () {
+                if (value < max) onChanged(value + 1);
+              },
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget _buildWeightField(int index) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text('Set ${index + 1}:', style: const TextStyle(color: Colors.white)),
+        Row(
+          children: [
+            IconButton(
+              icon: const Icon(Icons.remove, color: Colors.white),
+              onPressed: () {
+                _updateWeight(index, (exerciseSets[index].weight - 2.5).clamp(0, 999));
+              },
+            ),
+            SizedBox(
+              width: 60,
+              child: TextField(
+                keyboardType: TextInputType.number,
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  isDense: true,
+                  contentPadding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                ),
+                controller: TextEditingController(
+                    text: exerciseSets[index].weight.toStringAsFixed(1)),
+                onChanged: (val) {
+                  final parsed = double.tryParse(val);
+                  if (parsed != null) _updateWeight(index, parsed);
+                },
+              ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.add, color: Colors.white),
+              onPressed: () {
+                _updateWeight(index, exerciseSets[index].weight + 2.5);
+              },
+            ),
+          ],
+        ),
+      ],
+    );
   }
 
   @override
@@ -51,42 +154,74 @@ class _ExerciseDetailsScreenState extends State<ExerciseDetailsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(loc.getString(widget.exerciseKey)),
+        title: Text(tr(context, widget.exercise.name)),
         backgroundColor: const Color(0xFF071f35),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       backgroundColor: const Color(0xFF071f35),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            _buildTextField(loc.sets, _setsController),
-            _buildTextField(loc.reps, _repsController),
-            _buildTextField(loc.weightOptional, _weightController),
+            _buildStepper(loc.sets, sets, (val) {
+              setState(() => sets = val);
+            }, min: 1, max: maxSets),
+            const SizedBox(height: 16),
+            Column(
+              children: List.generate(sets, (i) {
+                return _buildStepper('Reps Set ${i + 1}', exerciseSets[i].reps,
+                        (val) => _updateReps(i, val), min: 1, max: 50);
+              }),
+            ),
+            const SizedBox(height: 16),
+            Column(
+              children: List.generate(sets, (i) => _buildWeightField(i)),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Volume:', style: TextStyle(color: Colors.white)),
+                Text('${volume.toStringAsFixed(1)} kg',
+                    style: const TextStyle(color: Colors.cyanAccent, fontWeight: FontWeight.bold)),
+              ],
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: notesController,
+              maxLines: 3,
+              style: const TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                labelText: 'Notes',
+                labelStyle: const TextStyle(color: Colors.white70),
+                enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white38)),
+                focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.cyanAccent)),
+              ),
+            ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _save,
-              child: Text(loc.save),
-            )
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: _save,
+                    child: Text(loc.save),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: _loadTemplate,
+                    child: Text(loc.loadTemplate),
+                  ),
+                ),
+              ],
+            ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextField(String label, TextEditingController controller) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: TextField(
-        controller: controller,
-        keyboardType: TextInputType.number,
-        style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          labelText: label,
-          labelStyle: const TextStyle(color: Colors.white70),
-          enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white38)),
-          focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.cyanAccent)),
         ),
       ),
     );

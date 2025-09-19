@@ -62,9 +62,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get heartRate => 'Heart rate';
 
   @override
-  String get cycling => 'Cycling';
-
-  @override
   String get calories => 'Calories';
 
   @override
@@ -178,19 +175,178 @@ class AppLocalizationsEn extends AppLocalizations {
   String get arms => 'Arms';
 
   @override
+  String get shoulders => 'Shoulders';
+
+  @override
+  String get core => 'Core';
+
+  @override
+  String get cardio => 'Cardio';
+
+  @override
   String get benchPress => 'Bench Press';
 
   @override
-  String get pushUps => 'Push-ups';
+  String get inclineBenchPress => 'Incline Bench Press';
 
   @override
-  String get pullUps => 'Pull-ups';
+  String get declineBenchPress => 'Decline Bench Press';
+
+  @override
+  String get chestFly => 'Chest Fly';
+
+  @override
+  String get pushUps => 'Push Ups';
+
+  @override
+  String get cableCrossover => 'Cable Crossover';
+
+  @override
+  String get dips => 'Dips';
+
+  @override
+  String get pullUps => 'Pull Ups';
+
+  @override
+  String get chinUps => 'Chin Ups';
+
+  @override
+  String get barbellRow => 'Barbell Row';
+
+  @override
+  String get dumbbellRow => 'Dumbbell Row';
+
+  @override
+  String get latPulldown => 'Lat Pulldown';
+
+  @override
+  String get deadlift => 'Deadlift';
+
+  @override
+  String get facePull => 'Face Pull';
+
+  @override
+  String get tBarRow => 'T-Bar Row';
 
   @override
   String get squats => 'Squats';
 
   @override
-  String get bicepCurls => 'Bicep curls';
+  String get frontSquats => 'Front Squats';
+
+  @override
+  String get lunges => 'Lunges';
+
+  @override
+  String get stepUps => 'Step Ups';
+
+  @override
+  String get legPress => 'Leg Press';
+
+  @override
+  String get romanianDeadlift => 'Romanian Deadlift';
+
+  @override
+  String get legExtension => 'Leg Extension';
+
+  @override
+  String get hamstringCurl => 'Hamstring Curl';
+
+  @override
+  String get calfRaise => 'Calf Raise';
+
+  @override
+  String get bicepCurls => 'Bicep Curls';
+
+  @override
+  String get hammerCurls => 'Hammer Curls';
+
+  @override
+  String get concentrationCurl => 'Concentration Curl';
+
+  @override
+  String get tricepPushdown => 'Tricep Pushdown';
+
+  @override
+  String get tricepDips => 'Tricep Dips';
+
+  @override
+  String get skullCrushers => 'Skull Crushers';
+
+  @override
+  String get overheadTricepExtension => 'Overhead Tricep Extension';
+
+  @override
+  String get closeGripBenchPress => 'Close Grip Bench Press';
+
+  @override
+  String get shoulderPress => 'Shoulder Press';
+
+  @override
+  String get lateralRaise => 'Lateral Raise';
+
+  @override
+  String get frontRaise => 'Front Raise';
+
+  @override
+  String get rearDeltFly => 'Rear Delt Fly';
+
+  @override
+  String get arnoldPress => 'Arnold Press';
+
+  @override
+  String get shrugs => 'Shrugs';
+
+  @override
+  String get uprightRow => 'Upright Row';
+
+  @override
+  String get plank => 'Plank';
+
+  @override
+  String get crunches => 'Crunches';
+
+  @override
+  String get legRaises => 'Leg Raises';
+
+  @override
+  String get russianTwist => 'Russian Twist';
+
+  @override
+  String get bicycleCrunch => 'Bicycle Crunch';
+
+  @override
+  String get mountainClimbers => 'Mountain Climbers';
+
+  @override
+  String get hangingLegRaise => 'Hanging Leg Raise';
+
+  @override
+  String get abRollout => 'Ab Rollout';
+
+  @override
+  String get running => 'Running';
+
+  @override
+  String get cycling => 'Cycling';
+
+  @override
+  String get rowing => 'Rowing';
+
+  @override
+  String get jumpRope => 'Jump Rope';
+
+  @override
+  String get stairClimber => 'Stair Climber';
+
+  @override
+  String get elliptical => 'Elliptical';
+
+  @override
+  String get swimming => 'Swimming';
+
+  @override
+  String get hiit => 'HIIT';
 
   @override
   String get sets => 'Sets';
@@ -203,4 +359,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get save => 'Save';
+
+  @override
+  String get loadTemplate => 'Load template';
 }
