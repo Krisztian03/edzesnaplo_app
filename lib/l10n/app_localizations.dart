@@ -157,6 +157,330 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Passwords do not match'**
   String get passwordsDoNotMatch;
+
+  /// No description provided for @firstName.
+  ///
+  /// In en, this message translates to:
+  /// **'First Name'**
+  String get firstName;
+
+  /// No description provided for @firstNameEmptyError.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your first name'**
+  String get firstNameEmptyError;
+
+  /// No description provided for @homeGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, {name}'**
+  String homeGreeting(Object name);
+
+  /// No description provided for @steps.
+  ///
+  /// In en, this message translates to:
+  /// **'Steps'**
+  String get steps;
+
+  /// No description provided for @sleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Sleep'**
+  String get sleep;
+
+  /// No description provided for @water.
+  ///
+  /// In en, this message translates to:
+  /// **'Water'**
+  String get water;
+
+  /// No description provided for @heartRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Heart rate'**
+  String get heartRate;
+
+  /// No description provided for @cycling.
+  ///
+  /// In en, this message translates to:
+  /// **'Cycling'**
+  String get cycling;
+
+  /// No description provided for @calories.
+  ///
+  /// In en, this message translates to:
+  /// **'Calories'**
+  String get calories;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @training.
+  ///
+  /// In en, this message translates to:
+  /// **'Training'**
+  String get training;
+
+  /// No description provided for @exercises.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercises'**
+  String get exercises;
+
+  /// No description provided for @report.
+  ///
+  /// In en, this message translates to:
+  /// **'Report'**
+  String get report;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @statusWalking.
+  ///
+  /// In en, this message translates to:
+  /// **'Walking'**
+  String get statusWalking;
+
+  /// No description provided for @statusStopped.
+  ///
+  /// In en, this message translates to:
+  /// **'Stopped'**
+  String get statusStopped;
+
+  /// No description provided for @mondayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Mon'**
+  String get mondayShort;
+
+  /// No description provided for @tuesdayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Tue'**
+  String get tuesdayShort;
+
+  /// No description provided for @wednesdayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Wed'**
+  String get wednesdayShort;
+
+  /// No description provided for @thursdayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Thu'**
+  String get thursdayShort;
+
+  /// No description provided for @fridayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Fri'**
+  String get fridayShort;
+
+  /// No description provided for @saturdayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Sat'**
+  String get saturdayShort;
+
+  /// No description provided for @sundayShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Sun'**
+  String get sundayShort;
+
+  /// No description provided for @stepCounterError.
+  ///
+  /// In en, this message translates to:
+  /// **' Step Counter Error!'**
+  String get stepCounterError;
+
+  /// No description provided for @pedestrianStatusError.
+  ///
+  /// In en, this message translates to:
+  /// **'Pedestrian Status error!'**
+  String get pedestrianStatusError;
+
+  /// No description provided for @invalidAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid amount!'**
+  String get invalidAmount;
+
+  /// No description provided for @maxPerServingExceeded.
+  ///
+  /// In en, this message translates to:
+  /// **'You can add up to 5 liters per serving!'**
+  String get maxPerServingExceeded;
+
+  /// No description provided for @dailyLimitExceeded.
+  ///
+  /// In en, this message translates to:
+  /// **'You’ve reached the daily limit (10 liters)!'**
+  String get dailyLimitExceeded;
+
+  /// No description provided for @waterIntake.
+  ///
+  /// In en, this message translates to:
+  /// **'Water intake'**
+  String get waterIntake;
+
+  /// No description provided for @enterWaterAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter amount in ml'**
+  String get enterWaterAmount;
+
+  /// No description provided for @waterAddedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Water Added'**
+  String get waterAddedSuccess;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get logout;
+
+  /// No description provided for @firstNameInvalidError.
+  ///
+  /// In en, this message translates to:
+  /// **'Only letters with or without accents are allowed!'**
+  String get firstNameInvalidError;
+
+  /// No description provided for @addTraining.
+  ///
+  /// In en, this message translates to:
+  /// **'Add training'**
+  String get addTraining;
+
+  /// No description provided for @noWorkouts.
+  ///
+  /// In en, this message translates to:
+  /// **'There are no scheduled workouts for this day.'**
+  String get noWorkouts;
+
+  /// No description provided for @selectCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Select category'**
+  String get selectCategory;
+
+  /// No description provided for @selectExercise.
+  ///
+  /// In en, this message translates to:
+  /// **'Select exercise'**
+  String get selectExercise;
+
+  /// No description provided for @addWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Workout'**
+  String get addWorkout;
+
+  /// No description provided for @chooseCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a category'**
+  String get chooseCategory;
+
+  /// No description provided for @chest.
+  ///
+  /// In en, this message translates to:
+  /// **'Chest'**
+  String get chest;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @legs.
+  ///
+  /// In en, this message translates to:
+  /// **'Legs'**
+  String get legs;
+
+  /// No description provided for @arms.
+  ///
+  /// In en, this message translates to:
+  /// **'Arms'**
+  String get arms;
+
+  /// No description provided for @benchPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Bench Press'**
+  String get benchPress;
+
+  /// No description provided for @pushUps.
+  ///
+  /// In en, this message translates to:
+  /// **'Push-ups'**
+  String get pushUps;
+
+  /// No description provided for @pullUps.
+  ///
+  /// In en, this message translates to:
+  /// **'Pull-ups'**
+  String get pullUps;
+
+  /// No description provided for @squats.
+  ///
+  /// In en, this message translates to:
+  /// **'Squats'**
+  String get squats;
+
+  /// No description provided for @bicepCurls.
+  ///
+  /// In en, this message translates to:
+  /// **'Bicep curls'**
+  String get bicepCurls;
+
+  /// No description provided for @sets.
+  ///
+  /// In en, this message translates to:
+  /// **'Sets'**
+  String get sets;
+
+  /// No description provided for @reps.
+  ///
+  /// In en, this message translates to:
+  /// **'Reps'**
+  String get reps;
+
+  /// No description provided for @weightOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight (optional)'**
+  String get weightOptional;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 }
 
 class _AppLocalizationsDelegate

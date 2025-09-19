@@ -23,7 +23,9 @@ class _LoginScreenState extends State<LoginScreen> {
       final result = await _authService.signInWithEmail(_email, _password);
       if (result == null) {
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (_) => const HomeScreen()));
+          context,
+          MaterialPageRoute(builder: (_) => const HomeScreen()),
+        );
       } else {
         setState(() => _errorMessage = result);
       }
@@ -35,35 +37,61 @@ class _LoginScreenState extends State<LoginScreen> {
     final loc = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBar(title: Text(loc.login)),
+      backgroundColor: const Color(0xFF071f35),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF071f35),
+        elevation: 0,
+        title: Text(
+          loc.login,
+          style: const TextStyle(color: Colors.white),
+        ),
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
         child: Form(
           key: _formKey,
-          child: Column(
+          child: ListView(
             children: [
               if (_errorMessage != null)
-                Text(_errorMessage!, style: const TextStyle(color: Colors.red)),
-              TextFormField(
-                decoration: InputDecoration(labelText: loc.email),
-                onSaved: (val) => _email = val!,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    _errorMessage!,
+                    style: const TextStyle(color: Colors.redAccent),
+                  ),
+                ),
+              _buildTextField(
+                label: loc.email,
+                onSaved: (val) => _email = val!.trim(),
                 validator: (val) =>
-                val!.isEmpty ? loc.emailEmptyError : null,
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: loc.password),
-                obscureText: true,
-                onSaved: (val) => _password = val!,
-                validator: (val) => (val == null || val.length < 6)
-                    ? loc.passwordShortError
-                    : null,
+                val == null || val.trim().isEmpty ? loc.emailEmptyError : null,
               ),
               const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: _submit,
-                child: Text(loc.login),
+              _buildTextField(
+                label: loc.password,
+                obscureText: true,
+                onSaved: (val) => _password = val!.trim(),
+                validator: (val) =>
+                val == null || val.length < 6 ? loc.passwordShortError : null,
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.cyanAccent,
+                  foregroundColor: Colors.black,
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: _submit,
+                child: Text(
+                  loc.login,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(height: 16),
               TextButton(
                 onPressed: () {
                   Navigator.push(
@@ -71,12 +99,44 @@ class _LoginScreenState extends State<LoginScreen> {
                     MaterialPageRoute(builder: (_) => const RegistrationScreen()),
                   );
                 },
-                child: Text(loc.dontHaveAccount),
+                child: Text(
+                  loc.dontHaveAccount,
+                  style: const TextStyle(color: Colors.white70),
+                ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildTextField({
+    required String label,
+    bool obscureText = false,
+    required void Function(String?) onSaved,
+    FormFieldValidator<String>? validator,
+  }) {
+    return TextFormField(
+      style: const TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: const TextStyle(color: Colors.white70),
+        filled: true,
+        fillColor: Colors.white10,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.white24),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.cyanAccent),
+        ),
+      ),
+      obscureText: obscureText,
+      onSaved: onSaved,
+      validator: validator,
     );
   }
 }
